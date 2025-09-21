@@ -1,0 +1,64 @@
+{
+  "name": "@smoothsend/sdk",
+  "version": "2.0.0-beta.1",
+  "description": "Lightweight multi-chain gasless transaction SDK client",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "gasless",
+    "transactions",
+    "blockchain",
+    "ethereum",
+    "avalanche",
+    "dapp",
+    "web3",
+    "api-client",
+    "lightweight"
+  ],
+  "author": "SmoothSend Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smoothsend/sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/smoothsend/sdk/issues"
+  },
+  "homepage": "https://smoothsend.xyz",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "ethers": "^6.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "eslint": "^8.51.0",
+    "rollup": "^4.0.0",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "rollup-plugin-dts": "^6.1.0",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "ethers": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
