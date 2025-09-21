@@ -1,7 +1,8 @@
-import typescript from '@rollup/plugin-typescript';
-import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
+import serve from 'rollup-plugin-serve';
 
 export default [
   // ES Modules build
@@ -17,6 +18,11 @@ export default [
       commonjs(),
       typescript({
         tsconfig: './tsconfig.json'
+      }),
+      serve({
+        open: true,
+        contentBase: 'dist',
+        port: 3001
       })
     ],
     external: ['axios', 'ethers', '@aptos-labs/ts-sdk']
@@ -27,7 +33,8 @@ export default [
     output: {
       file: 'dist/index.js',
       format: 'cjs',
-      sourcemap: true
+      sourcemap: true,
+      exports: 'named'
     },
     plugins: [
       resolve(),
@@ -40,7 +47,7 @@ export default [
   },
   // Type definitions
   {
-    input: 'dist/index.d.ts',
+    input: 'src/index.ts',
     output: {
       file: 'dist/index.d.ts',
       format: 'esm'
@@ -48,4 +55,3 @@ export default [
     plugins: [dts()]
   }
 ];
-
